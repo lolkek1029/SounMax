@@ -1,26 +1,27 @@
 import winsound
-from time import sleep
-program = "Sound 0.2"
-print(f"\t\t\t\t\t\t\t\t\t\t\t\t\t\t {program}")
-print("""
-Hey!
-This program create sound
-I`m learn python,and this program test!)
-""")
-sleep(3)
-Frequency = 0
-Timer = 0
-chooseSound = input("Choose Frequency: 'Small, Medium, High': ")
-time = [1000, 3000, 5000, 8000, 10000]
-if chooseSound == "Small":
-    Frequency = 1000
-    Timer = 2500
-    winsound.Beep(Frequency, Timer)
-elif chooseSound == "Medium":
-    Frequency = 2500
-    Timer = 2500
-    winsound.Beep(Frequency, Timer)
-else:
-    Frequency = 5000
-    Timer = 2500
-    winsound.Beep(Frequency,Timer)
+import sys
+print("\t\t\t Sound 0.3")
+quit = True
+while True:
+    try:
+        Frequency = 0
+        Timer = 0
+        print(f"Choose Frequrency: ")
+        Frequency = int(input())
+        print(f"Choose time: 's'")
+        Timer = str(input())
+        Timer1 = Timer + "000"
+        Timert = int(Timer1)
+        winsound.Beep(Frequency, Timert)
+
+    except ValueError:
+        print("You entered a non-correct, or too small/large number")
+    except KeyboardInterrupt:
+        break
+    quit = input("Exit?: 'y - yes, n - no' ")
+    if quit == "y":
+        sys.exit("Bye!")
+    else:
+        continue
+
+
