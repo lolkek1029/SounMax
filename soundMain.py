@@ -1,7 +1,6 @@
 import winsound
 import sys
-print("\t\t\t Sound 0.3")
-quit = True
+print("\t\t\t Sound 1.0")
 while True:
     try:
         Frequency = 0
@@ -18,10 +17,17 @@ while True:
         print("You entered a non-correct, or too small/large number")
     except KeyboardInterrupt:
         break
-    quit = input("Exit?: 'y - yes, n - no' ")
-    if quit == "y":
-        sys.exit("Bye!")
-    else:
-        continue
+    quit = input("Exit?: 'y - yes, n - no': ")
+    try:
+        while True:
+            if quit == "y":
+                sys.exit("Bye!")
+            elif quit == "n":
+                break
+            else:
+                print("non-correct")
+                sys.exit("Restart!")
+    except KeyboardInterrupt:
+        break
 
 
